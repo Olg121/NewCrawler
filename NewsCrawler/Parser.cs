@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO; 
 namespace NewsCrawler
 {
     class Parser
@@ -12,7 +12,10 @@ namespace NewsCrawler
         {
             String title;
             String article;
-
+            using (StreamWriter sw = new StreamWriter("Out.txt", false, System.Text.Encoding.Default))
+            {
+                sw.WriteLine(parseString);
+            }
             title = FindTitle();
             article = FindArticle();
 

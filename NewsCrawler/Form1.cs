@@ -19,7 +19,8 @@ namespace NewsCrawler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbotClass.Conf("https://news.tut.by"); 
+            AbotClass.Conf("https://meduza.io");
+            label1.Text = "OK"; 
          }
 
        

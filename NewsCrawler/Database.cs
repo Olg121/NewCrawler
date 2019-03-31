@@ -15,7 +15,7 @@ namespace NewsCrawler
 
         static public void AddNote(string TitleString, string ArticleString)
         {
-        npgSqlConnection.Open();
+       // npgSqlConnection.Open();
         
 
         }

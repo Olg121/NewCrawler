@@ -15,7 +15,9 @@ namespace NewsCrawler
         {
             log4net.Config.XmlConfigurator.Configure();
 
-            
+            Parser.Parse("test");
+
+
             Uri uriToCrawl = GetSiteToCrawl(URL);
 
             IWebCrawler crawler;
