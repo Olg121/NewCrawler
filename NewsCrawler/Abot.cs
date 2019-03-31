@@ -76,7 +76,7 @@ namespace NewsCrawler
 
             crawler.ShouldCrawlPage((pageToCrawl, crawlContext) =>
             {
-                if (pageToCrawl.Uri.AbsoluteUri.Contains("news"))
+                if (pageToCrawl.Uri.AbsoluteUri.Contains("ru/news/"))
                     return new CrawlDecision { Allow = true };
 
                 return new CrawlDecision { Allow = false };
@@ -112,19 +112,6 @@ namespace NewsCrawler
             return new Uri(userInput);
         }
 
-        private static void PrintDisclaimer()
-        {
-            PrintAttentionText("The demo is configured to only crawl a total of 10 pages and will wait 1 second in between http requests. This is to avoid getting you blocked by your isp or the sites you are trying to crawl. You can change these values in the app.config or Abot.Console.exe.config file.");
-        }
-
-        private static void PrintAttentionText(string text)
-        {
-            ConsoleColor originalColor = System.Console.ForegroundColor;
-            System.Console.ForegroundColor = ConsoleColor.Yellow;
-            System.Console.WriteLine(text);
-            System.Console.ForegroundColor = originalColor;
-        }
-
         static void crawler_ProcessPageCrawlStarting(object sender, PageCrawlStartingArgs e)
         {
             //Process data
@@ -141,8 +128,6 @@ namespace NewsCrawler
 
             Parser.Parse(crawledPage.Content.Text); 
             //crawledPage.Content.Text //raw html
-            //crawledPage.HtmlDocument //lazy loaded html agility pack object (HtmlAgilityPack.HtmlDocument)
-            //crawledPage.CSDocument   //lazy loaded cs query object (CsQuery.Cq)
         }
         static void crawler_PageLinksCrawlDisallowed(object sender, PageLinksCrawlDisallowedArgs e)
         {

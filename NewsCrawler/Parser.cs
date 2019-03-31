@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO; 
 namespace NewsCrawler
 {
-    class Parser
+    static class Parser
     {
         public static void Parse(String parseString)
         {
