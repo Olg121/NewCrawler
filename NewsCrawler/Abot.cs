@@ -127,7 +127,7 @@ namespace NewsCrawler
                 Console.WriteLine("Crawl of page succeeded {0}", crawledPage.Uri.AbsoluteUri);
 
             Parser.Parse(crawledPage.Content.Text); 
-            //crawledPage.Content.Text //raw html
+            //crawledPage.Content.Text //raw html 
         }
         static void crawler_PageLinksCrawlDisallowed(object sender, PageLinksCrawlDisallowedArgs e)
         {
