@@ -19,7 +19,7 @@ namespace NewsCrawler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbotClass.Conf("https://meduza.io");
+            AbotClass.Conf();
             label1.Text = "OK"; 
          }
 

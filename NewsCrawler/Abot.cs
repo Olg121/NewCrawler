@@ -11,14 +11,13 @@ namespace NewsCrawler
 {
     class AbotClass
     {
-        public static string Conf(String URL)
+        public static string Conf()
         {
             log4net.Config.XmlConfigurator.Configure();
 
-            Parser.Parse("test");
 
 
-            Uri uriToCrawl = GetSiteToCrawl(URL);
+            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/");
 
             IWebCrawler crawler;
       
@@ -35,8 +34,9 @@ namespace NewsCrawler
 
             //Start the crawl
             CrawlResult result = crawler.Crawl(uriToCrawl);
+           // Parser.Parse("test");
 
-            
+
             return "ok"; 
         }
 

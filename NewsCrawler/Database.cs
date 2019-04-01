@@ -11,9 +11,11 @@ namespace NewsCrawler
     {
         static NpgsqlConnection npgSqlConnection;
 
-        static public void AddNote(string TitleString, string ArticleString)
+        static public void AddNote(String TitleString, String ArticleString, String HtmlString, String urlString)
         {
-            NpgsqlCommand addNote = new NpgsqlCommand("insert into data (title, content) values ('" + TitleString + "','" + ArticleString + "');", npgSqlConnection);
+            // NpgsqlCommand addNote = new NpgsqlCommand("insert into data (title, content) values ('" + TitleString + "','" + ArticleString + "');", npgSqlConnection);
+            NpgsqlCommand addNote = new NpgsqlCommand("insert into data (title, content, url, html)" +
+                " values ('" + TitleString + "','" + ArticleString + "','" + urlString + "','" + HtmlString + "');", npgSqlConnection);
             npgSqlConnection.Open();
             addNote.ExecuteNonQuery();
             npgSqlConnection.Close();
