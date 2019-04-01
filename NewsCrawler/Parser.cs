@@ -3,47 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO; 
+using System.IO;
+using HtmlAgilityPack; 
+
 namespace NewsCrawler
 {
     static class Parser
     {
-        public static void Parse(String parseString)
+       // static StreamWriter output = new StreamWriter(File.OpenWrite("output.txt"));
+        public static void Parse(String parseString, Uri URLString)
         {
-            String title, article, html, url;
-            using (StreamWriter sw = new StreamWriter("Out.txt", false, System.Text.Encoding.Default))
+            String title, article;
+            HtmlDocument Doc = new HtmlDocument();
+            Doc.LoadHtml(parseString);
+
+
+            title = FindTitle(Doc);
+            article = FindArticle(Doc);
+
+            
+           // output.WriteLine(title, "\n");
+            
+            Database.AddNote(title, article, parseString, URLString.ToString()); 
+        }
+
+        static String FindTitle(HtmlDocument Doc)
+        {
+
+            HtmlNode title = Doc.DocumentNode.SelectSingleNode("//h1[@class='title']");
+            String TitleString;
+            TitleString = title.InnerText;
+            return TitleString; 
+        }
+
+        static String FindArticle(HtmlDocument Doc)
+        {
+            HtmlNodeCollection par = Doc.DocumentNode.SelectNodes("//p");
+            String ArticleString = "";
+            foreach (HtmlNode node in par)
             {
-                sw.WriteLine(parseString);
+                ArticleString  += node.InnerText + "\n";
             }
-            title = FindTitle();
-            article = FindArticle();
-            html = GetHtml();
-            url = GetUrl();
 
-            Database.AddNote(title, article, html, url); 
+            return ArticleString;
         }
-
-        static String FindTitle()
-        {
-
-            return (" "); 
-        }
-
-        static String FindArticle()
-        {
-
-            return (" "); 
-        }
-
-        static String GetUrl()
-        {
-            return null;
-        }
-
-        static String GetHtml()
-        {
-            return null;
-        }
-
     }
 }

@@ -17,7 +17,7 @@ namespace NewsCrawler
 
 
 
-            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/");
+            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/eto-prikaz-vy-vdvoem-edete-v-mogilevskuyu-oblast-lukashenko-nashel-novuyu-rabotu-dlya-rusogo-i-zajtsa/");
 
             IWebCrawler crawler;
       
@@ -77,6 +77,8 @@ namespace NewsCrawler
             crawler.ShouldCrawlPage((pageToCrawl, crawlContext) =>
             {
                 if (pageToCrawl.Uri.AbsoluteUri.Contains("ru/news/"))
+
+
                     return new CrawlDecision { Allow = true };
 
                 return new CrawlDecision { Allow = false };
@@ -126,7 +128,7 @@ namespace NewsCrawler
             else
                 Console.WriteLine("Crawl of page succeeded {0}", crawledPage.Uri.AbsoluteUri);
 
-            Parser.Parse(crawledPage.Content.Text); 
+            Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
             //crawledPage.Content.Text //raw html 
         }
         static void crawler_PageLinksCrawlDisallowed(object sender, PageLinksCrawlDisallowedArgs e)

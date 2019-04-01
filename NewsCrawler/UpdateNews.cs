@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace NewsCrawler
 {
-    public partial class Form1 : Form
+    public partial class UpdateNews : Form
     {
-        public Form1()
+        public UpdateNews()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label1.Text = "Wait"; 
             AbotClass.Conf();
             label1.Text = "OK"; 
          }

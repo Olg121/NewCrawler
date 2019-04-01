@@ -1,6 +1,6 @@
 ﻿namespace NewsCrawler
 {
-    partial class Form1
+    partial class UpdateNews
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -81,7 +81,7 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 6;
             // 
-            // Form1
+            // UpdateNews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,9 +95,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(300, 145);
             this.MinimumSize = new System.Drawing.Size(300, 145);
-            this.Name = "Form1";
+            this.Name = "UpdateNews";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,6 +11,7 @@ namespace NewsCrawler
     static class Program
     {
 
+
         // Тест парсера
       
             
@@ -22,9 +23,10 @@ namespace NewsCrawler
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoginDB());
             Database.DBCreate(); 
-            Application.Run(new Form1());
-            Application.Run(new Form2());
+            Application.Run(new UpdateNews());
+            Application.Run(new MainForm());
 
         }
     }
