@@ -35,12 +35,28 @@ namespace NewsCrawler
 
         }
 
-        static public string SearchNote()
+        static public string[] SearchNoteByLabel()
         {
+            string[] ArticleList = { };
 
-            return " "; 
+            return ArticleList;  
         }
 
+        static public string[] SearchNotesByKey()
+        {
+            string[] ArticleList = { };
+
+            return ArticleList; 
+        }
+
+        static public string[] ShowArticles()
+        {
+            string[] ArticleList = { };
+
+            
+
+            return ArticleList; 
+        }
         static public void DBCreate()
         {
 

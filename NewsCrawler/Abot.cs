@@ -17,24 +17,17 @@ namespace NewsCrawler
 
 
 
-            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/eto-prikaz-vy-vdvoem-edete-v-mogilevskuyu-oblast-lukashenko-nashel-novuyu-rabotu-dlya-rusogo-i-zajtsa/");
+            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/");
 
             IWebCrawler crawler;
       
-            //crawler = GetDefaultWebCrawler();
-            //crawler = GetManuallyConfiguredWebCrawler();
             crawler = GetCustomBehaviorUsingLambdaWebCrawler();
 
-            //Subscribe to any of these asynchronous events, there are also sychronous versions of each.
-            //This is where you process data about specific events of the crawl
-            crawler.PageCrawlStartingAsync += crawler_ProcessPageCrawlStarting;
+        
             crawler.PageCrawlCompletedAsync += crawler_ProcessPageCrawlCompleted;
-            crawler.PageCrawlDisallowedAsync += crawler_PageCrawlDisallowed;
-            crawler.PageLinksCrawlDisallowedAsync += crawler_PageLinksCrawlDisallowed;
-
+          
             //Start the crawl
             CrawlResult result = crawler.Crawl(uriToCrawl);
-           // Parser.Parse("test");
 
 
             return "ok"; 
@@ -114,11 +107,6 @@ namespace NewsCrawler
             return new Uri(userInput);
         }
 
-        static void crawler_ProcessPageCrawlStarting(object sender, PageCrawlStartingArgs e)
-        {
-            //Process data
-        }
-
        
         static void crawler_ProcessPageCrawlCompleted(object sender, PageCrawlCompletedArgs e)
         {
@@ -131,14 +119,5 @@ namespace NewsCrawler
             Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
             //crawledPage.Content.Text //raw html 
         }
-        static void crawler_PageLinksCrawlDisallowed(object sender, PageLinksCrawlDisallowedArgs e)
-        {
-            //Process data
-        }
-
-        static void crawler_PageCrawlDisallowed(object sender, PageCrawlDisallowedArgs e)
-        {
-            //Process data
-        }
-    }
+           }
 }

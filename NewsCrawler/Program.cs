@@ -11,13 +11,6 @@ namespace NewsCrawler
     static class Program
     {
 
-
-        // Тест парсера
-      
-            
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {

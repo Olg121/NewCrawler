@@ -10,7 +10,6 @@ namespace NewsCrawler
 {
     static class Parser
     {
-       // static StreamWriter output = new StreamWriter(File.OpenWrite("output.txt"));
         public static void Parse(String parseString, Uri URLString)
         {
             String title, article;
@@ -22,7 +21,6 @@ namespace NewsCrawler
             article = FindArticle(Doc);
 
             
-           // output.WriteLine(title, "\n");
             
             Database.AddNote(title, article, parseString, URLString.ToString()); 
         }
