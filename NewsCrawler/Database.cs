@@ -10,16 +10,16 @@ namespace NewsCrawler
     static class Database
     {
         static NpgsqlConnection npgSqlConnection;
-        static String LoginServer; 
-        static String PasswordServer;
+        static string LoginServer; 
+        static string PasswordServer;
 
-        static public void SignIN(String Login, String Password)
+        static public void SignIN(string Login, string Password)
         {
             LoginServer = Login;
             PasswordServer = Password; 
         }
 
-        static public void AddNote(String TitleString, String ArticleString, String HtmlString, String urlString)
+        static public void AddNote(string TitleString, string ArticleString, string HtmlString, string urlString)
         {
             
             
@@ -35,28 +35,88 @@ namespace NewsCrawler
 
         }
 
-        static public string[] SearchNoteByLabel()
+        static public List<string> SearchNoteByTitle(string title)
         {
-            string[] ArticleList = { };
+            List<string> ArticleList = new List<string> { };
 
+            NpgsqlCommand command = new NpgsqlCommand("select title,content from datanews where " +
+                "lower(title) like lower('%" + title + "%');", npgSqlConnection);    
+            
+            npgSqlConnection.Open();
+            NpgsqlDataReader npgsqlDataReader = command.ExecuteReader();
+            if (npgsqlDataReader.HasRows)
+            {
+                foreach (DbDataRecord dbDataRecord in npgsqlDataReader)
+                {
+                    ArticleList.Add(dbDataRecord["title"] + "\n\n" + dbDataRecord["content"]);
+                }
+            }
+            else
+            {
+                ArticleList.Add("Ничего не найдено");
+            }
+            npgSqlConnection.Close();
             return ArticleList;  
         }
 
-        static public string[] SearchNotesByKey()
-        {
-            string[] ArticleList = { };
 
-            return ArticleList; 
+        static public List<string> SearchNotesByKey(string keyword)
+        {
+            List<string> ArticleList = new List<string> { };
+
+            NpgsqlCommand command = new NpgsqlCommand("select title,content from datanews where " +
+                "lower(content) like lower('%" + keyword + "%');", npgSqlConnection);
+
+            npgSqlConnection.Open();
+            NpgsqlDataReader npgsqlDataReader = command.ExecuteReader();
+            if (npgsqlDataReader.HasRows)
+            {
+                foreach (DbDataRecord dbDataRecord in npgsqlDataReader)
+                {
+                    ArticleList.Add(dbDataRecord["title"] + "\n\n" + dbDataRecord["content"]);
+                }
+            }
+            else
+            {
+                ArticleList.Add("Ничего не найдено");
+            }
+            npgSqlConnection.Close();
+            return ArticleList;
         }
 
-        static public string[] ShowArticles()
+        static public List<string> ShowArticles()
         {
-            string[] ArticleList = { };
+            List<string> ArticleList = new List<string> { };
 
-            
+            NpgsqlCommand command = new NpgsqlCommand("select title,content from datanews;", npgSqlConnection);
 
-            return ArticleList; 
+            npgSqlConnection.Open();
+            NpgsqlDataReader npgsqlDataReader = command.ExecuteReader();
+            if (npgsqlDataReader.HasRows)
+            {
+                foreach (DbDataRecord dbDataRecord in npgsqlDataReader)
+                {
+                    ArticleList.Add(dbDataRecord["title"] + "\n\n" + dbDataRecord["content"]);
+                }
+            }
+            else
+            {
+                ArticleList.Add("Ничего не найдено");
+            }
+            npgSqlConnection.Close();
+            return ArticleList;
         }
+
+        static public bool CheckForUnique(Uri url)
+        {
+            NpgsqlCommand command = new NpgsqlCommand("select url from datanews where url like '%"+url+"%';", npgSqlConnection);
+            npgSqlConnection.Open();
+            NpgsqlDataReader npgsqlDataReader = command.ExecuteReader();
+            bool IsUnique = !npgsqlDataReader.HasRows;
+            npgSqlConnection.Close();
+            return IsUnique;
+        }
+
         static public void DBCreate()
         {
 

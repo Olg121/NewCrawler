@@ -10,34 +10,32 @@ namespace NewsCrawler
 {
     static class Parser
     {
-        public static void Parse(String parseString, Uri URLString)
+        public static void Parse(string parseString, Uri URLString)
         {
-            String title, article;
+            string title, article;
             HtmlDocument Doc = new HtmlDocument();
             Doc.LoadHtml(parseString);
 
 
             title = FindTitle(Doc);
             article = FindArticle(Doc);
-
-            
-            
-            Database.AddNote(title, article, parseString, URLString.ToString()); 
+            if (Database.CheckForUnique(URLString))
+                Database.AddNote(title, article, parseString, URLString.ToString()); 
         }
 
-        static String FindTitle(HtmlDocument Doc)
+        static string FindTitle(HtmlDocument Doc)
         {
 
             HtmlNode title = Doc.DocumentNode.SelectSingleNode("//h1[@class='title']");
-            String TitleString;
-            TitleString = title.InnerText;
+            string TitleString;
+            TitleString = title.InnerText;                      
             return TitleString; 
         }
 
-        static String FindArticle(HtmlDocument Doc)
+        static string FindArticle(HtmlDocument Doc)
         {
             HtmlNodeCollection par = Doc.DocumentNode.SelectNodes("//p");
-            String ArticleString = "";
+            string ArticleString = "";
             foreach (HtmlNode node in par)
             {
                 ArticleString  += node.InnerText + "\n";

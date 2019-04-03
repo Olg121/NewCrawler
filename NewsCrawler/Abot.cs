@@ -115,8 +115,8 @@ namespace NewsCrawler
                 Console.WriteLine("Crawl of page failed {0}", crawledPage.Uri.AbsoluteUri);
             else
                 Console.WriteLine("Crawl of page succeeded {0}", crawledPage.Uri.AbsoluteUri);
-
-            Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
+            if (crawledPage.Uri.AbsoluteUri != "https://belsat.eu/ru/news/")
+                Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
             //crawledPage.Content.Text //raw html 
         }
            }

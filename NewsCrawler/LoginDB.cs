@@ -37,15 +37,20 @@ namespace NewsCrawler
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // Sign In (Misc Accept button = True)
         {
             Database.SignIN(textBox1.Text, textBox2.Text);
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // Exit
         {
             Environment.Exit(0);
+        }
+
+        private void LoginDB_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

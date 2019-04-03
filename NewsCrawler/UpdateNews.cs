@@ -35,5 +35,10 @@ namespace NewsCrawler
         {
             this.Close(); 
         }
+
+        private void UpdateNews_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
