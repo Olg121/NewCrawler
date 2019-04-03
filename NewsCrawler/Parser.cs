@@ -18,7 +18,9 @@ namespace NewsCrawler
 
 
             title = FindTitle(Doc);
+            if (title == "empty") return;
             article = FindArticle(Doc);
+            if (title == "empty") return; 
             if (Database.CheckForUnique(URLString))
                 Database.AddNote(title, article, parseString, URLString.ToString()); 
         }
@@ -28,7 +30,10 @@ namespace NewsCrawler
 
             HtmlNode title = Doc.DocumentNode.SelectSingleNode("//h1[@class='title']");
             string TitleString;
-            TitleString = title.InnerText;                      
+            if (title != null)
+                TitleString = title.InnerText;
+            else
+                TitleString = "empty";
             return TitleString; 
         }
 
@@ -36,6 +41,12 @@ namespace NewsCrawler
         {
             HtmlNodeCollection par = Doc.DocumentNode.SelectNodes("//p");
             string ArticleString = "";
+
+           if(par == null)
+            {
+                ArticleString = "Empty";
+                return ArticleString; 
+            }
             foreach (HtmlNode node in par)
             {
                 ArticleString  += node.InnerText + "\n";

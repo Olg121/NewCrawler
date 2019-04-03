@@ -27,7 +27,7 @@ namespace NewsCrawler
 
 
             NpgsqlCommand addNote = new NpgsqlCommand("insert into datanews (title, content, url, html) values " +
-                "('" + TitleString + "','" + ArticleString + "','" + urlString + "',$$" + HtmlString + "$$);", npgSqlConnection);
+                "($$" + TitleString + "$$,$$" + ArticleString + "$$,$$" + urlString + "$$,$$" + HtmlString + "$$);", npgSqlConnection);
             npgSqlConnection.Open();
             addNote.ExecuteNonQuery();
             npgSqlConnection.Close();

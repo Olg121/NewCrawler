@@ -43,7 +43,7 @@ namespace NewsCrawler
             //Create a config object manually
             CrawlConfiguration config = new CrawlConfiguration();
             config.CrawlTimeoutSeconds = 0;
-            config.DownloadableContentTypes = "text/html, text/plain";
+            config.DownloadableContentTypes = "text/html, text/plain, text/html5";
             config.IsExternalPageCrawlingEnabled = false;
             config.IsExternalPageLinksCrawlingEnabled = false;
             config.IsRespectRobotsDotTextEnabled = false;
