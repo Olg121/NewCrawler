@@ -17,7 +17,8 @@ namespace NewsCrawler
 
 
 
-            Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/");
+            //Uri uriToCrawl = GetSiteToCrawl("https://belsat.eu/ru/news/");
+            Uri uriToCrawl = GetSiteToCrawl("https://belaruspartisan.by/");
 
             IWebCrawler crawler;
       
@@ -69,11 +70,15 @@ namespace NewsCrawler
 
             crawler.ShouldCrawlPage((pageToCrawl, crawlContext) =>
             {
-                if (pageToCrawl.Uri.AbsoluteUri.Contains("ru/news/"))
-
-
+                if (pageToCrawl.Uri.AbsoluteUri.Contains("economic/") ||
+                (pageToCrawl.Uri.AbsoluteUri.Contains("sport/")) ||
+                (pageToCrawl.Uri.AbsoluteUri.Contains("politic/")) ||
+                (pageToCrawl.Uri.AbsoluteUri.Contains("life/")) ||
+                (pageToCrawl.Uri.AbsoluteUri.Contains("enjoy/")) || 
+                (pageToCrawl.Uri.AbsoluteUri.Equals("https://belaruspartisan.by/")))
+                {
                     return new CrawlDecision { Allow = true };
-
+                }
                 return new CrawlDecision { Allow = false };
             });
 
@@ -115,8 +120,8 @@ namespace NewsCrawler
                 Console.WriteLine("Crawl of page failed {0}", crawledPage.Uri.AbsoluteUri);
             else
                 Console.WriteLine("Crawl of page succeeded {0}", crawledPage.Uri.AbsoluteUri);
-            if (crawledPage.Uri.AbsoluteUri != "https://belsat.eu/ru/news/")
-                Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
+            //if (crawledPage.Uri.AbsoluteUri != "https://belsat.eu/ru/news/")
+            Parser.Parse(crawledPage.Content.Text, crawledPage.Uri); 
             //crawledPage.Content.Text //raw html 
         }
            }

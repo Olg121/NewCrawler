@@ -29,7 +29,7 @@ namespace NewsCrawler
         static string FindTitle(HtmlDocument Doc)
         {
 
-            HtmlNode title = Doc.DocumentNode.SelectSingleNode("//h1[@class='title']");
+            HtmlNode title = Doc.DocumentNode.SelectSingleNode("//h1[@class='name']");
             string TitleString;
             if (title != null)
                 TitleString = title.InnerText;
@@ -40,7 +40,7 @@ namespace NewsCrawler
 
         static string FindArticle(HtmlDocument Doc)
         {
-            HtmlNodeCollection par = Doc.DocumentNode.SelectNodes("//p");
+            HtmlNodeCollection par = Doc.DocumentNode.SelectNodes("//div[@class='detail_text']");
             string ArticleString = "";
 
            if(par == null)
