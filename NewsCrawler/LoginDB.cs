@@ -39,7 +39,7 @@ namespace NewsCrawler
 
         private void button1_Click(object sender, EventArgs e) // Sign In (Misc Accept button = True)
         {
-            Database.SignIN(textBox1.Text, textBox2.Text);
+            //Database.SignIN(textBox1.Text, textBox2.Text);
             this.Close();
         }
 

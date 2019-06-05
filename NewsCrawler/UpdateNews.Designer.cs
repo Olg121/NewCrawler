@@ -98,7 +98,6 @@
             this.Name = "UpdateNews";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.UpdateNews_Load);
             this.ResumeLayout(false);

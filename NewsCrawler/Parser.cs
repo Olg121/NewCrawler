@@ -20,9 +20,10 @@ namespace NewsCrawler
             title = FindTitle(Doc);
             if (title == "empty") return;
             article = FindArticle(Doc);
-            if (title == "empty") return; 
-            if (Database.CheckForUnique(URLString))
-                Database.AddNote(title, article, parseString, URLString.ToString()); 
+            if (title == "empty") return;
+            //if (Database.CheckForUnique(URLString))
+            //    Database.AddNote(title, article, parseString, URLString.ToString());
+            Database.AddNote(title, article, parseString, URLString.ToString());
         }
 
         static string FindTitle(HtmlDocument Doc)

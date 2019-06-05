@@ -49,7 +49,7 @@ namespace NewsCrawler
             config.IsRespectRobotsDotTextEnabled = false;
             config.IsUriRecrawlingEnabled = false;
             config.MaxConcurrentThreads = 10;
-            config.MaxPagesToCrawl = 10;
+            config.MaxPagesToCrawl = 50;
             config.MaxPagesToCrawlPerDomain = 0;
             config.MinCrawlDelayPerDomainMilliSeconds = 1000;
 

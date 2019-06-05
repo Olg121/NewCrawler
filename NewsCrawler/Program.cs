@@ -16,8 +16,8 @@ namespace NewsCrawler
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginDB());
-            Database.DBCreate(); 
+            //Application.Run(new LoginDB());
+            //Database.DBCreate();             
             Application.Run(new UpdateNews());
             Application.Run(new MainForm());
 
