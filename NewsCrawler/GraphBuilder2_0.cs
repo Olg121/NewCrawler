@@ -47,6 +47,7 @@ namespace NewsCrawler
             graph.pair temp;
             List<string> URLs = new List<string>();
             List<string> humans = new List<string>();
+            Names.Add(name);
             using (NpgsqlConnection connection = GetConnection())
             {
                 NpgsqlCommand command = new NpgsqlCommand("select url from person where name = '" + name + "'", connection);
@@ -103,7 +104,7 @@ namespace NewsCrawler
             return answer;
 
         }
-
+        
 
         public struct graph
         {
