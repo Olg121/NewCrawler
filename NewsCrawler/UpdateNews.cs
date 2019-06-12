@@ -38,7 +38,15 @@ namespace NewsCrawler
 
         private void UpdateNews_Load(object sender, EventArgs e)
         {
+            this.BringToFront();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            View A = new View();
+            A.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -117,41 +117,6 @@ namespace NewsCrawler
             return IsUnique;
         }
 
-        static public void DBCreate()
-        {
-
-            // нужно изменять пароль в строке коннекта, можно добавить в интерфейс
-            npgSqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;Username=" + LoginServer + ";Password=" + PasswordServer + ";Database=news");
-            try
-            {
-                npgSqlConnection.Open();
-                npgSqlConnection.Close();
-            }
-            catch
-            {
-                // создает дб с названием news, если ее нет
-                npgSqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;Username=" + LoginServer +  ";Password=" + PasswordServer);
-                NpgsqlCommand createDb = new NpgsqlCommand("create database news;", npgSqlConnection);
-                npgSqlConnection.Open();
-                createDb.ExecuteNonQuery();
-                npgSqlConnection.Close();
-
-                // подключаемся к только что созданной бд news и создаем в ней таблицу data
-                npgSqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;Username=" + LoginServer + ";Password=" + PasswordServer + ";Database=news");
-
-                NpgsqlCommand createTbl = new NpgsqlCommand("create table datanews (url varchar, title varchar, content text, html text);", npgSqlConnection);
-                npgSqlConnection.Open();
-                createTbl.ExecuteNonQuery();
-                npgSqlConnection.Close();
-
-
-            }
-            finally
-            {
-               npgSqlConnection.Close();
-            }
-
-        }
-
+    
     }
 }

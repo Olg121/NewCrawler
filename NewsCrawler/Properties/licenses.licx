@@ -1,2 +1,9 @@
-Nevron.Diagram.WinForm.NPanAndZoomControl, Nevron.Diagram.WinForm, Version=18.12.10.12, Culture=neutral, PublicKeyToken=8232c9976c3abc48
+DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7fc7bfca2443de66
+Telerik.WinControls.UI.RadTextBoxControl, Telerik.WinControls.UI, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e
+DevExpress.XtraDiagram.DiagramPanAndZoomControl, DevExpress.XtraDiagram.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+Nevron.Diagram.WinForm.NLibraryView, Nevron.Diagram.WinForm, Version=18.12.10.12, Culture=neutral, PublicKeyToken=8232c9976c3abc48
+Telerik.WinControls.UI.RadTitleBar, Telerik.WinControls.UI, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e
+Telerik.WinControls.UI.RadLabel, Telerik.WinControls.UI, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e
 Nevron.Diagram.WinForm.NDrawingView, Nevron.Diagram.WinForm, Version=18.12.10.12, Culture=neutral, PublicKeyToken=8232c9976c3abc48
+Telerik.WinControls.UI.RadDiagramRibbonBar, Telerik.WinControls.RadDiagram, Version=2018.2.621.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e
+Nevron.Diagram.WinForm.NPanAndZoomControl, Nevron.Diagram.WinForm, Version=18.12.10.12, Culture=neutral, PublicKeyToken=8232c9976c3abc48
