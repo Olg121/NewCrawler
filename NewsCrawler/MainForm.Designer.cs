@@ -38,6 +38,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.EntAnStartButton = new System.Windows.Forms.Button();
+            this.graphButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -146,12 +148,34 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // EntAnStartButton
+            // 
+            this.EntAnStartButton.Location = new System.Drawing.Point(40, 384);
+            this.EntAnStartButton.Name = "EntAnStartButton";
+            this.EntAnStartButton.Size = new System.Drawing.Size(83, 52);
+            this.EntAnStartButton.TabIndex = 12;
+            this.EntAnStartButton.Text = "EntityAnalzer Start";
+            this.EntAnStartButton.UseVisualStyleBackColor = true;
+            this.EntAnStartButton.Click += new System.EventHandler(this.EntAnStartButton_Click);
+            // 
+            // graphButton
+            // 
+            this.graphButton.Location = new System.Drawing.Point(40, 476);
+            this.graphButton.Name = "graphButton";
+            this.graphButton.Size = new System.Drawing.Size(83, 40);
+            this.graphButton.TabIndex = 13;
+            this.graphButton.Text = "Graph";
+            this.graphButton.UseVisualStyleBackColor = true;
+            this.graphButton.Click += new System.EventHandler(this.graphButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1096, 598);
+            this.Controls.Add(this.graphButton);
+            this.Controls.Add(this.EntAnStartButton);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button6);
@@ -163,7 +187,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "MainForm";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -184,5 +207,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button EntAnStartButton;
+        private System.Windows.Forms.Button graphButton;
     }
 }

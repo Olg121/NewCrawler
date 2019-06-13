@@ -7,13 +7,11 @@ using ServiceStack.DataAnnotations;
 
 namespace NewsCrawler
 {
-    class Note
+    public class Note
     {
-        [PrimaryKey]
-        [AutoIncrement]
-        int IdNote { get; set; }
         public string Title { get; set; }
         public string Article { get; set; }
+        [PrimaryKey]
         public string Url { get; set; }
         public string Html { get; set; }
     }

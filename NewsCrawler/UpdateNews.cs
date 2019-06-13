@@ -19,7 +19,6 @@ namespace NewsCrawler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Database.CreateTable();
             label1.Text = "Wait"; 
             AbotClass.Conf();
             label1.Text = "OK"; 

@@ -107,5 +107,17 @@ namespace NewsCrawler
         {
 
         }
+
+        private void EntAnStartButton_Click(object sender, EventArgs e)
+        {
+            Database.CreateTable<Entity>();
+            EntityAnalyzer.StartAnalyzer();
+        }
+
+        private void graphButton_Click(object sender, EventArgs e)
+        {
+            var graph = new Graph();
+            graph.ShowDialog();
+        }
     }
 }

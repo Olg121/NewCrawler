@@ -20,6 +20,7 @@ namespace NewsCrawler
             //Database.DBCreate();             
             Application.Run(new UpdateNews());
             Application.Run(new MainForm());
+           // Application.Run(new Graph());
 
         }
     }

@@ -46,6 +46,42 @@
     </Reference>
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EP.Analyzer.Biblio">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Biblio.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Decree">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Decree.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Goods">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Goods.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Location">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Location.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Misc">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Organization">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Organization.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Person">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Person.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Semantic">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Semantic.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Analyzer.Util">
+      <HintPath>..\EP.Sdk\EP.Analyzer.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Core">
+      <HintPath>..\EP.Sdk\EP.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Explanatory">
+      <HintPath>..\EP.Sdk\EP.Explanatory.dll</HintPath>
+    </Reference>
+    <Reference Include="EP.Morphology">
+      <HintPath>..\EP.Sdk\EP.Morphology.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\Abot.1.6.0.20\lib\net40\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -55,6 +91,12 @@
     <Reference Include="MathNet.Numerics, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.5.1\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
+    <Reference Include="Nevron.Diagram, Version=18.12.10.12, Culture=neutral, PublicKeyToken=58d0c39aedb7cb73" />
+    <Reference Include="Nevron.Diagram.Shapes, Version=18.12.10.12, Culture=neutral, PublicKeyToken=532a56b211affb14" />
+    <Reference Include="Nevron.Diagram.WinForm, Version=18.12.10.12, Culture=neutral, PublicKeyToken=8232c9976c3abc48" />
+    <Reference Include="Nevron.GraphicsGL, Version=18.12.10.12, Culture=neutral, PublicKeyToken=2f17c6a71f852d32" />
+    <Reference Include="Nevron.Presentation, Version=18.12.10.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc" />
+    <Reference Include="Nevron.System, Version=18.12.10.12, Culture=neutral, PublicKeyToken=6a987feae5e496fd" />
     <Reference Include="Npgsql, Version=4.0.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.0.7\lib\net451\Npgsql.dll</HintPath>
     </Reference>
@@ -89,6 +131,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -122,6 +165,15 @@
   <ItemGroup>
     <Compile Include="Abot.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="EntityAnalyzer.cs" />
+    <Compile Include="Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graph.Designer.cs">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Name.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="UpdateNews.cs">
       <SubType>Form</SubType>
@@ -144,6 +196,10 @@
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UpdateNews.resx">
       <DependentUpon>UpdateNews.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +240,12 @@
     <Content Include="phantomjs-license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EP.Sdk\EP.Sdk.csproj">
+      <Project>{635573f4-6aa9-479d-a0a5-2294cb26e79f}</Project>
+      <Name>EP.Sdk</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

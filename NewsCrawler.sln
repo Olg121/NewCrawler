@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsCrawler", "NewsCrawler\NewsCrawler.csproj", "{5A718549-756B-4DD1-AC70-76610F57AA25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityAnalyzer", "EntityAnalyzer\EntityAnalyzer.csproj", "{2ED9C4B6-1C48-4564-9AED-B03CB6BA1A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EP.Sdk", "EP.Sdk\EP.Sdk.csproj", "{635573F4-6AA9-479D-A0A5-2294CB26E79F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5A718549-756B-4DD1-AC70-76610F57AA25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A718549-756B-4DD1-AC70-76610F57AA25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A718549-756B-4DD1-AC70-76610F57AA25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED9C4B6-1C48-4564-9AED-B03CB6BA1A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED9C4B6-1C48-4564-9AED-B03CB6BA1A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED9C4B6-1C48-4564-9AED-B03CB6BA1A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED9C4B6-1C48-4564-9AED-B03CB6BA1A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635573F4-6AA9-479D-A0A5-2294CB26E79F}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{635573F4-6AA9-479D-A0A5-2294CB26E79F}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{635573F4-6AA9-479D-A0A5-2294CB26E79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635573F4-6AA9-479D-A0A5-2294CB26E79F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
