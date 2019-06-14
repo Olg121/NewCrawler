@@ -82,6 +82,14 @@ namespace NewsCrawler
             foreach (var name in nameList)
                 persons.Add(new NPerson(name, basicShapesFactory.CreateShape(BasicShapes.Circle)));
 
+            
+
+            // create the person vertices
+            for (int i = 0; i < persons.Count; i++)
+            {
+                document.ActiveLayer.AddChild(persons[i].m_Shape);
+            }
+
             foreach (var person in persons)
             {
                 var urlList = Database.GetUrlsByName(person.m_Name);
@@ -99,12 +107,6 @@ namespace NewsCrawler
                         }
                     }
                 }
-            }
-
-            // create the person vertices
-            for (int i = 0; i < persons.Count; i++)
-            {
-                document.ActiveLayer.AddChild(persons[i].m_Shape);
             }
 
 
@@ -197,14 +199,22 @@ namespace NewsCrawler
 
 
 
-          
 
-            // layout the shapes
-            if (m_Layout != null)
-                m_Layout.Layout(shapes, layoutContext);
-
+            try
+            {
+                // layout the shapes
+                if (m_Layout != null)
+                    m_Layout.Layout(shapes, layoutContext);
+            }
+            catch
+            { }
             // resize document to fit all shapes
             document.SizeToContent();
+        }
+
+        private void nPanAndZoomControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

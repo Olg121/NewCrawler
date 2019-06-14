@@ -34,7 +34,6 @@
             this.document = new Nevron.Diagram.NDrawingDocument();
             this.view = new Nevron.Diagram.WinForm.NDrawingView();
             this.LayoutButton1 = new Nevron.UI.WinForm.Controls.NButton();
-            this.nPanAndZoomControl1 = new Nevron.Diagram.WinForm.NPanAndZoomControl();
             this.SuspendLayout();
             // 
             // propertyGrid1
@@ -67,10 +66,10 @@
             this.view.DesignTimeState = ((Nevron.Diagram.NBinaryState)(resources.GetObject("view.DesignTimeState")));
             this.view.Dock = System.Windows.Forms.DockStyle.Fill;
             this.view.Document = this.document;
-            this.view.Location = new System.Drawing.Point(0, 0);
+            this.view.Location = new System.Drawing.Point(156, 0);
             this.view.Name = "view";
             this.view.RenderTechnology = Nevron.GraphicsCore.RenderTechnology.GDIPlus;
-            this.view.Size = new System.Drawing.Size(971, 586);
+            this.view.Size = new System.Drawing.Size(815, 557);
             this.view.TabIndex = 9;
             this.view.Text = "nDrawingView1";
             // 
@@ -84,25 +83,13 @@
             this.LayoutButton1.Text = "Layout";
             this.LayoutButton1.Click += new System.EventHandler(this.LayoutButton1_Click);
             // 
-            // nPanAndZoomControl1
-            // 
-            this.nPanAndZoomControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.nPanAndZoomControl1.LargeZoomChangeFactor = ((uint)(10u));
-            this.nPanAndZoomControl1.Location = new System.Drawing.Point(735, 0);
-            this.nPanAndZoomControl1.MasterView = this.view;
-            this.nPanAndZoomControl1.Name = "nPanAndZoomControl1";
-            this.nPanAndZoomControl1.Size = new System.Drawing.Size(236, 557);
-            this.nPanAndZoomControl1.TabIndex = 11;
-            this.nPanAndZoomControl1.Text = "nPanAndZoomControl1";
-            // 
             // Graph
             // 
             this.ClientSize = new System.Drawing.Size(971, 586);
-            this.Controls.Add(this.nPanAndZoomControl1);
+            this.Controls.Add(this.view);
             this.Controls.Add(this.LayoutButton1);
             this.Controls.Add(this.UpdateDrawingWhileLayouting);
             this.Controls.Add(this.propertyGrid1);
-            this.Controls.Add(this.view);
             this.Name = "Graph";
             this.ResumeLayout(false);
 
@@ -115,6 +102,5 @@
         private Nevron.UI.WinForm.Controls.NButton LayoutButton1;
         private System.Windows.Forms.CheckBox UpdateDrawingWhileLayouting;
         private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private Nevron.Diagram.WinForm.NPanAndZoomControl nPanAndZoomControl1;
     }
 }
